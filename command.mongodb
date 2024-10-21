@@ -1,0 +1,74 @@
+
+use('recept');
+
+db.recepts.insertOne({
+    name: "Pancakes",
+    Ingredienser: ["Flour", "Milk", "Eggs", "Butter", "Sugar", "Baking powder", "Salt"],
+    Tillagningstid: 20,
+    Tillagningsteg: [
+        "Mix flour, sugar, baking powder and salt in a bowl.",
+        "In a separate bowl, mix milk, eggs and melted butter.",
+        "Combine wet and dry ingredients and mix until smooth.",
+        "Heat a pan and pour in pancake batter.",
+        "Cook until bubbles form, then flip and cook until golden brown."
+    ]
+});
+
+db.recepts.find();
+
+db.recepts.updateOne({name:"Pancakes"},{$set:{Ingredienser: ["Flour", "Milk", "Eggs", "Butter", "Sugar", "Baking powder", "Salt", "love"]}})
+
+
+db.recepts.insertMany([
+    {
+        name: "Cheeseburger",
+        Ingredienser: ["Nötfärs", "Hamburgerbröd", "Cheddarost", "Lök", "Tomat", "Salat", "Ketchup", "Senap"],
+        Tillagningstid: 30,
+        Tillagningsteg: [
+            "Forma nötfärsen till biffar och krydda med salt och peppar.",
+            "Grilla eller stek biffarna i ca 4-5 minuter per sida.",
+            "Lägg en skiva cheddarost på biffen och låt smälta.",
+            "Montera hamburgarna med bröd, biff, lök, tomat, salat och såser."
+        ]
+    },
+    {
+        name: "Macaroni and Cheese",
+        Ingredienser: ["Makaroner", "Cheddarost", "Mjölk", "Smör", "Mjöl", "Salt", "Peppar"],
+        Tillagningstid: 30,
+        Tillagningsteg: [
+            "Koka makaronerna enligt anvisningarna.",
+            "Smält smöret i en kastrull och vispa i mjölet för att göra en roux.",
+            "Tillsätt mjölken och rör tills såsen tjocknar.",
+            "Blanda i den rivna osten tills den smälter.",
+            "Blanda makaronerna med ostsåsen och gratinera i ugnen om så önskas."
+        ]
+    },
+    {
+        name: "Apple Pie",
+        Ingredienser: ["Äpplen", "Socker", "sKanel", "Mjöl", "Smör", "Pajdeg"],
+        Tillagningstid: 60,
+        Tillagningsteg: [
+            "Sätt ugnen på 220°C.",
+            "Skala och skär äpplena i skivor.",
+            "Blanda äpplen med socker och kanel.",
+            "Kavla ut pajdegen och lägg i en pajform.",
+            "Fyll med äppelmix och täck med mer pajdeg.",
+            "Grädda i 45-50 minuter tills gyllene."
+        ]
+    }
+]);
+
+db.recepts.find();
+
+db.recepts.deleteOne({name:"Pancakes"});
+
+db.recepts.updateMany({},{$set:{Tillagningstid: 45}})
+
+db.recepts.deleteMany({$and:[{Ingredienser: "Sugar"},{Ingredienser: "Salt"}]});
+
+db.recepts.find();
+
+db.recepts.find({},{name:1,Ingredienser:1,_id:false})
+
+db.recepts.deleteMany({name:{$regex:/[a-z]/i}})
+
