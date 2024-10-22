@@ -26,12 +26,7 @@ Varje dokument i receptsamlingen representerar ett individuellt recept och kan i
 
 - **Datamodell**:
 
-  - **MongoDB**: Data lagras som flexibla JSON-dokument med inbäddade fält och arrayer.
-  - **Relationsdatabas**: Data lagras i fasta tabeller med rader och kolumner, där varje tabell har en definierad struktur.
-- **Relationer**:
-
-  - **MongoDB**: Relationer är mindre strikta; data kan lagras tillsammans i ett dokument, vilket gör hämtning enklare.
-  - **Relationsdatabas**: Relationer definieras med främmande nycklar, och `JOIN`-operationer används för att hämta relaterad data.
+  **MongoDB**: Data lagras som flexibla JSON-dokument med inbäddade fält och arrayer, vilket ger en hierarkisk struktur.medan Relationsdatabas data lagras i fasta tabeller med rader och kolumner, där varje tabell har en definierad struktur.
 
 --- Skriv ovanför och ta inte bort denna raden ---
 
@@ -78,7 +73,8 @@ Varje dokument i receptsamlingen representerar ett individuellt recept och kan i
 
 - Kan bli långsammare efter att man lagt till index, särskilt vid uppdateringar eller om man lägger till mycket data, så det är bättre att lägga till index när CRUD är klart och endast göra sökningar efteråt.
 - De som inte gillar kommandon kommer kanske inte att uppskatta denna datatyp.
-- Det kan bli mer komplicerat med indexering och även göra kommandon mer komplexa.
+- Mindre lämpliga för komplexa relationer: Joins kan vara utmanande.
+- Potentiell dataredundans: Data kan behöva dupliceras över flera dokument.
 
 --- Skriv ovanför och ta inte bort denna raden ---
 
@@ -96,7 +92,7 @@ Varje dokument i receptsamlingen representerar ett individuellt recept och kan i
 - Skillnaderna mellan relationsdatabaser och dokumentdatabaser.
 - Implementera kommandon genom Mongo Shell och VSCode.
 - Grundläggande skapande av data med CRUD.
-- Hur man använder MongoDB Compass och kopplar ihop med API.
+
 
 --- Skriv ovanför och ta inte bort denna raden ---
 
